@@ -35,6 +35,7 @@ public class Proj3 {
 
         for(int i = 0; i < right - mid; i++)
             p2.add(a.get(mid + i + 1));
+
         ArrayList<T> combined = new ArrayList<T>();
         while(!p2.isEmpty() && !p1.isEmpty()){
             if(p1.get(0).compareTo(p2.get(0)) < 0){
@@ -66,7 +67,7 @@ public class Proj3 {
     // Quick Sort
     public static <T extends Comparable> void quickSort(ArrayList<T> a, int left, int right) {
         // Finish Me
-        if(right >= left)
+        if(right <= left)
             return;
 
         int pivot = partition(a, left, right);
@@ -152,6 +153,7 @@ public class Proj3 {
     }
 
     // Bubble Sort
+
     public static <T extends Comparable> int bubbleSort(ArrayList<T> a, int size) {
         // Finish Me
         int numComparisons = 0;
@@ -167,6 +169,7 @@ public class Proj3 {
         }
         return numComparisons;
     }
+
 
     // Odd-Even Transposition Sort
     public static <T extends Comparable> int transpositionSort(ArrayList<T> a, int size) {
@@ -290,7 +293,7 @@ public class Proj3 {
         //System.out.println(Array.toString());
         //System.out.println(Array.size());
 
-        /*
+
 
         //These should be safe.
 
@@ -305,16 +308,16 @@ public class Proj3 {
 
         //String AlgorithmnType = args[1];
 
-
-
         long start;
         long averageTimeElapsed = 0;
-        int NumberOfComparisons;
+        int NumberOfComparisons = 0;
 
         if (AlgorithmnType.equals("mergeSort")){
             //For Sorted
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.sort(Array);
+                Sorted = (ArrayList<SPY>)Array.clone();
                 mergeSort(Sorted, 0, Sorted.size() - 1);
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -324,6 +327,8 @@ public class Proj3 {
             //For Shuffled
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.shuffle(Array);
+                Shuffled = (ArrayList<SPY>)Array.clone();
                 mergeSort(Shuffled, 0, Shuffled.size() - 1);
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -333,6 +338,8 @@ public class Proj3 {
             //For Reversed
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.sort(Array, Collections.reverseOrder());
+                Reversed = (ArrayList<SPY>)Array.clone();
                 mergeSort(Reversed, 0, Reversed.size() - 1);
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -344,6 +351,8 @@ public class Proj3 {
             //For Sorted
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.sort(Array);
+                Sorted = (ArrayList<SPY>)Array.clone();
                 quickSort(Sorted, 0, Sorted.size() - 1);
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -353,6 +362,8 @@ public class Proj3 {
             //For Shuffled
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.shuffle(Array);
+                Shuffled = (ArrayList<SPY>)Array.clone();
                 quickSort(Shuffled, 0, Shuffled.size() - 1);
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -362,6 +373,8 @@ public class Proj3 {
             //For Reversed
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.sort(Array, Collections.reverseOrder());
+                Reversed = (ArrayList<SPY>)Array.clone();
                 quickSort(Reversed, 0, Reversed.size() - 1);
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -372,6 +385,8 @@ public class Proj3 {
             //For Sorted
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.sort(Array);
+                Sorted = (ArrayList<SPY>)Array.clone();
                 heapSort(Sorted, 0, Sorted.size() - 1);
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -381,6 +396,8 @@ public class Proj3 {
             //For Shuffled
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.shuffle(Array);
+                Shuffled = (ArrayList<SPY>)Array.clone();
                 heapSort(Shuffled, 0, Shuffled.size() - 1);
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -390,6 +407,8 @@ public class Proj3 {
             //For Reversed
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.sort(Array, Collections.reverseOrder());
+                Reversed = (ArrayList<SPY>)Array.clone();
                 heapSort(Reversed, 0, Reversed.size() - 1);
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -402,6 +421,8 @@ public class Proj3 {
             start = System.nanoTime();
 
             for (int i = 0; i < 4; i++) {
+                Collections.sort(Array);
+                Sorted = (ArrayList<SPY>)Array.clone();
                 NumberOfComparisons = bubbleSort(Sorted, Sorted.size());
             }
             averageTimeElapsed = (System.nanoTime() - start) / 5;
@@ -412,6 +433,8 @@ public class Proj3 {
             //For Shuffled
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.shuffle(Array);
+                Shuffled = (ArrayList<SPY>)Array.clone();
                 NumberOfComparisons = bubbleSort(Shuffled, Shuffled.size());
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -422,6 +445,8 @@ public class Proj3 {
             //For Reversed
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.sort(Array, Collections.reverseOrder());
+                Reversed = (ArrayList<SPY>)Array.clone();
                 NumberOfComparisons = bubbleSort(Reversed, Reversed.size());
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -433,6 +458,8 @@ public class Proj3 {
             //For Sorted
             start = System.nanoTime();
             for (int i = 0; i < 4; i++) {
+                Collections.sort(Array);
+                Sorted = (ArrayList<SPY>)Array.clone();
                 NumberOfComparisons = transpositionSort(Sorted, Sorted.size());
             }
             averageTimeElapsed = (System.nanoTime() - start) / 5;
@@ -443,6 +470,8 @@ public class Proj3 {
             //For Shuffled
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.shuffle(Array);
+                Shuffled = (ArrayList<SPY>)Array.clone();
                 NumberOfComparisons = transpositionSort(Shuffled, Shuffled.size());
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -452,6 +481,8 @@ public class Proj3 {
             //For Reversed
             start = System.nanoTime();
             for(int i = 0; i < 4; i++) {
+                Collections.sort(Array, Collections.reverseOrder());
+                Reversed = (ArrayList<SPY>)Array.clone();
                 NumberOfComparisons = transpositionSort(Reversed, Reversed.size());
             }
             averageTimeElapsed = (System.nanoTime() - start)/ 5;
@@ -460,99 +491,7 @@ public class Proj3 {
             writeToFile("Number of Comparisons " + NumberOfComparisons, "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
         }
 
-        */
-        //ArrayList<SPY> Sorted = new ArrayList<SPY>(Array.subList(0, 20));
-        //System.out.println(Sorted);
-
-        writeToFile("Average Time Elapsed For Sorted Merge Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Merge", "Sorted");
-
-        writeToFile("Average Time Elapsed For Sorted Quick Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Quick", "Sorted");
-
-        writeToFile("Average Time Elapsed For Sorted Heap Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Heap", "Sorted");
-
-        writeToFile("Average Time Elapsed For Sorted Bubble Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Bubble", "Sorted");
-
-        writeToFile("Average Time Elapsed For Sorted Transposition Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Transposition", "Sorted");
-
-
-        writeToFile("Shuffled", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-
-        writeToFile("Average Time Elapsed For Shuffled Merge Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Merge", "Shuffled");
-
-        writeToFile("Average Time Elapsed For Shuffled Quick Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Quick", "Shuffled");
-
-        writeToFile("Average Time Elapsed For Sorted Heap Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Heap", "Shuffled");
-
-        writeToFile("Average Time Elapsed For Shuffled Bubble Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Bubble", "Shuffled");
-
-        writeToFile("Average Time Elapsed For Sorted Transposition Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Transposition", "Shuffled");
-
-
-        writeToFile("Reversed", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-
-        writeToFile("Average Time Elapsed For Reversed Merge Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Merge", "Reversed");
-
-        writeToFile("Average Time Elapsed For Shuffled Quick Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Quick", "Reversed");
-
-        writeToFile("Average Time Elapsed For Sorted Heap Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Heap", "Reversed");
-
-        writeToFile("Average Time Elapsed For Shuffled Bubble Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Bubble", "Reversed");
-
-        writeToFile("Average Time Elapsed For Sorted Transposition Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        Call(Array, "Transposition", "Reversed");
 
     }
 
-
-
-    public static void Call(ArrayList<SPY> Array, String AlgType, String form){
-        writeToFile(form + " " + AlgType + " Sort", "/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-        long start;
-        long averageTimeElapsed = 0;
-
-        for(int i = 5; i <= 100; i += 5){
-
-            ArrayList<SPY> newArray = new ArrayList<SPY>(Array.subList(0, i));
-            if(form.equals("Sorted")) {
-                Collections.sort(newArray);
-            } else if(form.equals("Shuffled")){
-                Collections.shuffle(newArray);
-            } else{
-                Collections.sort(newArray,Collections.reverseOrder());
-            }
-
-            start = System.nanoTime();
-
-            for(int j = 0; j < 5; j++) {
-                if(AlgType.equals("Merge")) {
-                    mergeSort(newArray, 0, newArray.size() - 1);
-                } else if(AlgType.equals("Quick")){
-                    quickSort(newArray, 0, newArray.size()-1);
-                } else if(AlgType.equals("Heap")){
-                    heapSort(newArray, 0, newArray.size()-1);
-                } else if(AlgType.equals("bubble")){
-                    bubbleSort(newArray,newArray.size());
-                } else if(AlgType.equals("transposition")){
-                    transpositionSort(newArray, newArray.size());
-                }
-            }
-            averageTimeElapsed = (System.nanoTime() - start)/ 5;
-            writeToFile(averageTimeElapsed + ", " + i,"/Users/jackperry/IdeaProjects/project-3-JackPerry123/src/result.txt");
-
-        }
-    }
 }
